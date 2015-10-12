@@ -1,0 +1,34 @@
+﻿<bpel:process xmlns:bpdm="http://www.intalio/designer/business-process-data-modeling" xmlns:mapper="http://www.intalio.com/designer/mapper" xmlns:ns="urn:intalio.com:connectors:database:mysql_sp:sp_operationservice" xmlns:Data_SP="http://thisdiagram/Data_SP" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:this="http://thisdiagram/Pool" xmlns:diag="http://thisdiagram" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ode="http://www.apache.org/ode/type/extension" targetNamespace="http://thisdiagram/Pool">
+    <bpdm:dependencies version="6000089">
+        <bpdm:namespaceDefinition bpdm:uri="urn:intalio.com:connectors:database:mysql_sp:sp_operationservice" bpdm:prefix="ns" bpdm:comment="contrib=&apos;project:///Connectors/Database/SP_Operation.sql/SP_Operation.sql.wsdl"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram/Data_SP" bpdm:prefix="Data_SP" bpdm:comment="contrib=&apos;partner-pool:///_Fbg5wG5CEeWD6_cSCbH64A"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/2001/XMLSchema" bpdm:prefix="xs"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/2001/XMLSchema-instance" bpdm:prefix="xsi"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram/Pool" bpdm:prefix="this" bpdm:type="this_process"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram" bpdm:prefix="diag" bpdm:comment="contrib=&apos;partner-pool:///_Fbg5wG5CEeWD6_cSCbH64A"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/XML/1998/namespace" bpdm:prefix="xml"></bpdm:namespaceDefinition>
+        <bpdm:namespaceContributor bpdm:url="thisprocess://this-process-types" bpdm:label="process defined this-process-types"></bpdm:namespaceContributor>
+        <bpdm:namespaceContributor bpdm:url="partner-pool:///_Fbg5wG5CEeWD6_cSCbH64A" bpdm:label="Data SP"/>
+        <bpdm:namespaceContributor bpdm:url="project:///Connectors/Database/SP_Operation.sql/SP_Operation.sql.wsdl"/>
+        <bpdm:namespaceContributor bpdm:url="project:///Connectors/Database/SP_Operation.sql/SP_Operation.xsd"/>
+    </bpdm:dependencies>
+    <bpel:scope bpdm:label="Pool" bpdm:ID="_H_3JAG5GEeWD6_cSCbH64A">
+        <bpel:partnerLinks>
+            <bpel:partnerLink name="poolAndData_SPForSP_OperationPortPlkVar" partnerLinkType="diag:PoolAndData_SPForSP_OperationPortPlk" myRole="Pool_for_Data_SP" bpdm:enableSharing="false" bpdm:providedService="ns:SP_OperationService" bpdm:providedPort="SP_OperationPort" bpdm:provideSOAPAddress="http://localhost:8080/intalio/ode/processes/MySql_SP/Connectors/Database/SP_Operation" bpdm:providedIsDefault="true" bpdm:clientTasks="_H_3JAG5GEeWD6_cSCbH64A:_sf_dFW5REeWrjo_0BaH3rw" bpdm:isManaged="true" bpdm:otherPoolId="_Fbg5wG5CEeWD6_cSCbH64A"/>
+        </bpel:partnerLinks>
+        <bpel:variables>
+            <bpel:variable name="nsSP_OperationRequestMsg" messageType="ns:SP_OperationInput" binding="ns:SP_OperationPortSoapBinding" operation="SP_Operation" opMsgType="0" bpdm:id="_tDsnEG5REeWrjo_0BaH3rw" bpdm:messageIds="inc:_tCz2QG5REeWrjo_0BaH3rw"/>
+            <bpel:variable name="nsSP_OperationResponseMsg" messageType="ns:SP_OperationOutput" binding="ns:SP_OperationPortSoapBinding" operation="SP_Operation" opMsgType="1" bpdm:id="_uCd8cG5REeWrjo_0BaH3rw" bpdm:messageIds=" out:_uBuVkG5REeWrjo_0BaH3rw">
+                <bpel:from bpdm:toPart="parameters">
+                    <bpel:literal bpdm:linkedMessageType="ns:SP_OperationOutput" bpdm:linkedPart="parameters" bpdm:binding="ns:SP_OperationPortSoapBinding" bpdm:opMsgType="1" bpdm:operation="SP_Operation"></bpel:literal>
+                </bpel:from>
+            </bpel:variable>
+        </bpel:variables>
+        <bpel:sequence>
+            <bpdm:messagingtask operation="SP_Operation" partnerLink="poolAndData_SPForSP_OperationPortPlkVar" portType="ns:SP_OperationPort" isMyRole="true" enableSharing="false" bpdm:backEdgeId="" bpdm:backEdgeParticipantType="none" bpdm:backEdgeParticipantTarget="none" bpdm:label="Provide-Service-Sp_operation" bpdm:ID="_sf_dFW5REeWrjo_0BaH3rw">
+                <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="receive" bpdm:messageVariable="nsSP_OperationRequestMsg" bpdm:msgVarScopeId="_H_3JAG5GEeWD6_cSCbH64A" bpdm:variableIsManaged="true" bpdm:messageType="ns:SP_OperationInput" bpdm:binding="ns:SP_OperationPortSoapBinding" bpdm:ID="_tCz2QG5REeWrjo_0BaH3rw"></bpdm:linkset>
+                <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="reply" bpdm:messageVariable="nsSP_OperationResponseMsg" bpdm:msgVarScopeId="_H_3JAG5GEeWD6_cSCbH64A" bpdm:variableIsManaged="true" bpdm:messageType="ns:SP_OperationOutput" bpdm:binding="ns:SP_OperationPortSoapBinding" bpdm:ID="_uBuVkG5REeWrjo_0BaH3rw"></bpdm:linkset>
+            </bpdm:messagingtask>
+        </bpel:sequence>
+    </bpel:scope>
+</bpel:process>

@@ -1,0 +1,26 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<wsdl:definitions xmlns:diag="http://thisdiagram" xmlns:Data_SP="http://thisdiagram/Data_SP" xmlns:Data_SPimplicitPartner="http://thisdiagram/Data_SPimplicitPartner" xmlns:Pool="http://thisdiagram/Pool" xmlns:Send="http://thisdiagram/Send" xmlns:tns="http://www.example.org/message" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns="urn:intalio.com:connectors:database:mysql_sp:sp_operationservice" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:bpdm="http://www.intalio/designer/business-process-data-modeling" targetNamespace="http://thisdiagram" bpdm:version="6000089" bpdm:canid="_DXOt0G5CEeWD6_cSCbH64A" bpdm:displayName="diag">
+  <pnlk:partnerLinkType name="Data_SpAndSend" bpdm:poolOneId="_Fbg5wG5CEeWD6_cSCbH64A" bpdm:poolOneIsExecutable="true" bpdm:poolOneName="Data SP" bpdm:poolTwoId="_DXyugG5CEeWD6_cSCbH64A" bpdm:poolTwoIsExecutable="false" bpdm:poolTwoName="Send">
+    <pnlk:role name="Data_SP_for_Send" portType="Data_SP:ForSend" bpdm:thisPoolId="_Fbg5wG5CEeWD6_cSCbH64A">
+      <wsdl:portType name="ForSend">
+        <wsdl:operation name="Begin" bpdm:canid="_DXyugm5CEeWD6_cSCbH64A._hoV_EG5GEeWD6_cSCbH64A._tFmskG5GEeWD6_cSCbH64A.">
+          <wsdl:input message="Data_SP:BeginRequest" name="Begin" bpdm:canid="_hofJAG5GEeWD6_cSCbH64A" bpdm:senderId="_DXyugm5CEeWD6_cSCbH64A" bpdm:receiverId="_hoV_EG5GEeWD6_cSCbH64A" bpdm:senderName="Task" bpdm:receiverName="Begin" bpdm:receiverPoolId="_Fbg5wG5CEeWD6_cSCbH64A" bpdm:dataobjectPointer="project:///Schemas/message.xsd?xsdtype={http://www.example.org/message}msg1" bpdm:bodyPartElemName="BeginRequest" bpdm:bodyPartElemType="{http://www.example.org/message}msg1"></wsdl:input>
+          <wsdl:output message="Data_SP:BeginResponse" name="BeginResponse" bpdm:canid="_xc8gQG5GEeWD6_cSCbH64A" bpdm:senderId="_tFmskG5GEeWD6_cSCbH64A" bpdm:receiverId="_DXyugm5CEeWD6_cSCbH64A" bpdm:senderName="End" bpdm:receiverName="Task" bpdm:receiverPoolId="_DXyugG5CEeWD6_cSCbH64A" bpdm:bodyPartElemName="BeginResponse" bpdm:bodyPartElemType="xs:string"></wsdl:output>
+        </wsdl:operation>
+      </wsdl:portType>
+    </pnlk:role>
+  </pnlk:partnerLinkType>
+  <pnlk:partnerLinkType name="PoolAndData_SP" bpdm:poolOneId="_H_3JAG5GEeWD6_cSCbH64A" bpdm:poolOneIsExecutable="false" bpdm:poolOneName="Pool" bpdm:poolTwoId="_Fbg5wG5CEeWD6_cSCbH64A" bpdm:poolTwoIsExecutable="true" bpdm:poolTwoName="Data SP">
+    <pnlk:role name="Pool_for_Data_SP" portType="Pool:ForData_SP" bpdm:thisPoolId="_H_3JAG5GEeWD6_cSCbH64A">
+      <wsdl:portType name="ForData_SP">
+        <wsdl:operation name="Provide-Service-Sp_operation" bpdm:canid="_Whg78G5DEeWD6_cSCbH64A._sf_dFW5REeWrjo_0BaH3rw." bpdm:dataobjectPointer="project:///Connectors/Database/SP_Operation.sql/SP_Operation.sql.wsdl?wsdloperationbound={urn:intalio.com:connectors:database:mysql_sp:sp_operationservice}SP_OperationService/SP_OperationPort/SP_Operation">
+          <wsdl:input message="ns:SP_OperationRequest" name="Provide-Service-Sp_operation" bpdm:canid="_tCz2QG5REeWrjo_0BaH3rw" bpdm:senderId="_Whg78G5DEeWD6_cSCbH64A" bpdm:receiverId="_sf_dFW5REeWrjo_0BaH3rw" bpdm:senderName="SP_Invoker" bpdm:receiverName="Provide-Service-Sp_operation" bpdm:receiverPoolId="_H_3JAG5GEeWD6_cSCbH64A" bpdm:dataobjectPointer="project:///Connectors/Database/SP_Operation.sql/SP_Operation.sql.wsdl?messageForBoundOperation={urn:intalio.com:connectors:database:mysql_sp:sp_operationservice}SP_OperationService/SP_OperationPort/SP_Operation/input/SP_OperationRequest"></wsdl:input>
+          <wsdl:output message="ns:SP_OperationResponse" name="Provide-Service-Sp_operationResponse" bpdm:canid="_uBuVkG5REeWrjo_0BaH3rw" bpdm:senderId="_sf_dFW5REeWrjo_0BaH3rw" bpdm:receiverId="_Whg78G5DEeWD6_cSCbH64A" bpdm:senderName="Provide-Service-Sp_operation" bpdm:receiverName="SP_Invoker" bpdm:receiverPoolId="_Fbg5wG5CEeWD6_cSCbH64A" bpdm:dataobjectPointer="project:///Connectors/Database/SP_Operation.sql/SP_Operation.sql.wsdl?messageForBoundOperation={urn:intalio.com:connectors:database:mysql_sp:sp_operationservice}SP_OperationService/SP_OperationPort/SP_Operation/output/SP_OperationResponse"></wsdl:output>
+        </wsdl:operation>
+      </wsdl:portType>
+    </pnlk:role>
+  </pnlk:partnerLinkType>
+  <pnlk:partnerLinkType name="PoolAndData_SPForSP_OperationPortPlk" bpdm:canPlkId="_H_3JAG5GEeWD6_cSCbH64A-_Fbg5wG5CEeWD6_cSCbH64A">
+    <pnlk:role name="Pool_for_Data_SP" portType="ns:SP_OperationPort"></pnlk:role>
+  </pnlk:partnerLinkType>
+</wsdl:definitions>

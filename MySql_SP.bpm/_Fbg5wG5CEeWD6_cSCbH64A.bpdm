@@ -1,0 +1,82 @@
+﻿<bpel:process xmlns:bpdm="http://www.intalio/designer/business-process-data-modeling" xmlns:mapper="http://www.intalio.com/designer/mapper" xmlns:ns="urn:intalio.com:connectors:database:mysql_sp:sp_operationservice" xmlns:this="http://thisdiagram/Data_SP" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://www.example.org/message" xmlns:Send="http://thisdiagram/Send" xmlns:Pool="http://thisdiagram/Pool" xmlns:Data_SPimplicitPartner="http://thisdiagram/Data_SPimplicitPartner" xmlns:diag="http://thisdiagram" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ode="http://www.apache.org/ode/type/extension" targetNamespace="http://thisdiagram/Data_SP">
+    <bpdm:dependencies version="6000089">
+        <bpdm:namespaceDefinition bpdm:uri="urn:intalio.com:connectors:database:mysql_sp:sp_operationservice" bpdm:prefix="ns" bpdm:comment="contrib=&apos;project:///Connectors/Database/SP_Operation.sql/SP_Operation.sql.wsdl"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram/Data_SP" bpdm:prefix="this" bpdm:type="this_process"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/2001/XMLSchema" bpdm:prefix="xs"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/2001/XMLSchema-instance" bpdm:prefix="xsi"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.example.org/message" bpdm:prefix="tns" bpdm:comment="contrib=&apos;project:///Schemas/message.xsd"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram/Send" bpdm:prefix="Send" bpdm:comment="contrib=&apos;partner-pool:///_DXyugG5CEeWD6_cSCbH64A"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram/Pool" bpdm:prefix="Pool" bpdm:comment="contrib=&apos;partner-pool:///_H_3JAG5GEeWD6_cSCbH64A"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram/Data_SPimplicitPartner" bpdm:prefix="Data_SPimplicitPartner" bpdm:comment="contrib=&apos;partner-pool:///_Fbg5wG5CEeWD6_cSCbH64AimplicitPartner"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram" bpdm:prefix="diag" bpdm:comment="contrib=&apos;partner-pool:///_DXyugG5CEeWD6_cSCbH64A"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/XML/1998/namespace" bpdm:prefix="xml"></bpdm:namespaceDefinition>
+        <bpdm:namespaceContributor bpdm:url="thisprocess://this-process-types" bpdm:label="process defined this-process-types">
+            <wsdl:portType name="ForSend">
+                <wsdl:operation name="Begin" bpdm:source="partner-pool:///_DXyugG5CEeWD6_cSCbH64A">
+                    <wsdl:input message="this:BeginRequest" name="Begin"/>
+                    <wsdl:output message="this:BeginResponse" name="BeginResponse"/>
+                </wsdl:operation>
+            </wsdl:portType>
+            <bpel:binding name="CanonicBindingForSend" type="this:ForSend" bpdm:isSynchronized="true"/>
+            <xs:element name="BeginRequest" type="tns:msg1" bpdm:source="partner-pool:///_DXyugG5CEeWD6_cSCbH64A"/>
+            <wsdl:message name="BeginRequest" bpdm:source="partner-pool:///_DXyugG5CEeWD6_cSCbH64A">
+                <wsdl:part name="body" element="this:BeginRequest"/>
+            </wsdl:message>
+            <xs:element name="BeginResponse" type="xs:string" bpdm:source="partner-pool:///_DXyugG5CEeWD6_cSCbH64A"/>
+            <wsdl:message name="BeginResponse" bpdm:source="partner-pool:///_DXyugG5CEeWD6_cSCbH64A">
+                <wsdl:part name="body" element="this:BeginResponse"/>
+            </wsdl:message>
+        </bpdm:namespaceContributor>
+        <bpdm:namespaceContributor bpdm:url="partner-pool:///_DXyugG5CEeWD6_cSCbH64A" bpdm:label="Send"/>
+        <bpdm:namespaceContributor bpdm:url="partner-pool:///_Fbg5wG5CEeWD6_cSCbH64AimplicitPartner" bpdm:label="Data SPimplicitPartner"/>
+        <bpdm:namespaceContributor bpdm:url="partner-pool:///_H_3JAG5GEeWD6_cSCbH64A" bpdm:label="Pool"/>
+        <bpdm:namespaceContributor bpdm:url="project:///Connectors/Database/SP_Operation.sql/SP_Operation.sql.wsdl"/>
+        <bpdm:namespaceContributor bpdm:url="project:///Schemas/message.xsd"/>
+        <bpdm:namespaceContributor bpdm:url="project:///Connectors/Database/SP_Operation.sql/SP_Operation.xsd"/>
+    </bpdm:dependencies>
+    <bpel:scope bpdm:label="Data SP" bpdm:ID="_Fbg5wG5CEeWD6_cSCbH64A">
+        <bpel:partnerLinks>
+            <bpel:partnerLink name="data_SpAndSendPlkVar" partnerLinkType="diag:Data_SpAndSend" myRole="Data_SP_for_Send" bpdm:enableSharing="false" bpdm:providedService="this:CanonicServiceForSend" bpdm:providedPort="canonicPort" bpdm:provideSOAPAddress="${deploy_serverUrl}${deploy_baseSoapServicesUrl}/${deploy_bundleNcName}/${diagram_relativeURL}/Data_SP/Send" bpdm:providedIsDefault="true" bpdm:clientTasks="_Fbg5wG5CEeWD6_cSCbH64A:_tFmskG5GEeWD6_cSCbH64A, _Fbg5wG5CEeWD6_cSCbH64A:_hoV_EG5GEeWD6_cSCbH64A" bpdm:isManaged="true" bpdm:otherPoolId="_DXyugG5CEeWD6_cSCbH64A"/>
+            <bpel:partnerLink name="poolAndData_SPForSP_OperationPortPlkVar" partnerLinkType="diag:PoolAndData_SPForSP_OperationPortPlk" initializePartnerRole="yes" partnerRole="Pool_for_Data_SP" bpdm:invokedService="ns:SP_OperationService" bpdm:invokedPort="SP_OperationPort" bpdm:invokedSOAPAddress="http://localhost:8080/intalio/ode/processes/MySql_SP/Connectors/Database/SP_Operation" bpdm:invokedIsDefault="true" bpdm:clientTasks="_Fbg5wG5CEeWD6_cSCbH64A:_Whg78G5DEeWD6_cSCbH64A" bpdm:isManaged="true" bpdm:otherPoolId="_H_3JAG5GEeWD6_cSCbH64A"/>
+        </bpel:partnerLinks>
+        <bpel:variables>
+            <bpel:variable name="thisBeginRequestMsg" messageType="this:BeginRequest" bpdm:id="_hoo6CW5GEeWD6_cSCbH64A" bpdm:messageIds="inc:_hofJAG5GEeWD6_cSCbH64A"/>
+            <bpel:variable name="thisBeginResponseMsg" messageType="this:BeginResponse" bpdm:id="_xdGRSW5GEeWD6_cSCbH64A" bpdm:messageIds=" out:_xc8gQG5GEeWD6_cSCbH64A">
+                <bpel:from bpdm:toPart="body">
+                    <bpel:literal bpdm:linkedMessageType="this:BeginResponse" bpdm:linkedPart="body"></bpel:literal>
+                </bpel:from>
+            </bpel:variable>
+            <bpel:variable name="nsSP_OperationRequestMsg" messageType="ns:SP_OperationInput" binding="ns:SP_OperationPortSoapBinding" operation="SP_Operation" opMsgType="0" bpdm:id="_tDZsIG5REeWrjo_0BaH3rw" bpdm:messageIds=" out:_tCz2QG5REeWrjo_0BaH3rw">
+                <bpel:from bpdm:toPart="parameters">
+                    <bpel:literal bpdm:linkedMessageType="ns:SP_OperationInput" bpdm:linkedPart="parameters" bpdm:binding="ns:SP_OperationPortSoapBinding" bpdm:opMsgType="0" bpdm:operation="SP_Operation"></bpel:literal>
+                </bpel:from>
+            </bpel:variable>
+            <bpel:variable name="nsSP_OperationResponseMsg" messageType="ns:SP_OperationOutput" binding="ns:SP_OperationPortSoapBinding" operation="SP_Operation" opMsgType="1" bpdm:id="_uCnGaG5REeWrjo_0BaH3rw" bpdm:messageIds="inc:_uBuVkG5REeWrjo_0BaH3rw"/>
+        </bpel:variables>
+        <bpel:sequence>
+            <bpdm:messagingtask eventType="start: message" operation="Begin" partnerLink="data_SpAndSendPlkVar" portType="this:ForSend" isMyRole="true" enableSharing="false" bpdm:backEdgeId="" bpdm:backEdgeParticipantType="none" bpdm:backEdgeParticipantTarget="none" bpdm:label="Begin" bpdm:ID="_hoV_EG5GEeWD6_cSCbH64A">
+                <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="receive" bpdm:messageVariable="thisBeginRequestMsg" bpdm:msgVarScopeId="_Fbg5wG5CEeWD6_cSCbH64A" bpdm:variableIsManaged="true" bpdm:messageType="this:BeginRequest" bpdm:ID="_hofJAG5GEeWD6_cSCbH64A"></bpdm:linkset>
+            </bpdm:messagingtask>
+            <bpdm:messagingtask operation="SP_Operation" partnerLink="poolAndData_SPForSP_OperationPortPlkVar" portType="ns:SP_OperationPort" isMyRole="false" enableSharing="false" bpdm:backEdgeId="" bpdm:backEdgeParticipantType="none" bpdm:backEdgeParticipantTarget="none" bpdm:label="SP_Invoker" bpdm:ID="_Whg78G5DEeWD6_cSCbH64A">
+                <bpdm:linkset bpdm:type="assignments">
+                    <bpel:copy>
+                        <bpel:from>$thisBeginRequestMsg.body/tns:name</bpel:from>
+                        <bpel:to>$nsSP_OperationRequestMsg.parameters/ns:call/ns:parameters/ns:name</bpel:to><mapper:mapperLink><mapper:vertice id="1651730506" targetPath="$nsSP_OperationRequestMsg.parameters/ns:call/ns:parameters/ns:name" targetedBy="235749542-arg0"></mapper:vertice><mapper:vertice id="235749542" sourcePath="$thisBeginRequestMsg.body/tns:name"></mapper:vertice></mapper:mapperLink>
+                    </bpel:copy>
+                </bpdm:linkset>
+                <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="invoke-request" bpdm:messageVariable="nsSP_OperationRequestMsg" bpdm:msgVarScopeId="_Fbg5wG5CEeWD6_cSCbH64A" bpdm:variableIsManaged="true" bpdm:messageType="ns:SP_OperationInput" bpdm:binding="ns:SP_OperationPortSoapBinding" bpdm:ID="_tCz2QG5REeWrjo_0BaH3rw"></bpdm:linkset>
+                <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="invoke-receive" bpdm:messageVariable="nsSP_OperationResponseMsg" bpdm:msgVarScopeId="_Fbg5wG5CEeWD6_cSCbH64A" bpdm:variableIsManaged="true" bpdm:messageType="ns:SP_OperationOutput" bpdm:binding="ns:SP_OperationPortSoapBinding" bpdm:ID="_uBuVkG5REeWrjo_0BaH3rw"></bpdm:linkset>
+                <bpdm:thrownFault msgFaultNcName="nsSP_OperationFault" msgFaultTypeQname="ns:SP_OperationFault"/>
+            </bpdm:messagingtask>
+            <bpdm:messagingtask eventType="end: message" operation="Begin" partnerLink="data_SpAndSendPlkVar" portType="this:ForSend" isMyRole="true" enableSharing="false" bpdm:backEdgeId="" bpdm:backEdgeParticipantType="none" bpdm:backEdgeParticipantTarget="none" bpdm:label="End" bpdm:ID="_tFmskG5GEeWD6_cSCbH64A">
+                <bpdm:linkset bpdm:type="assignments">
+                    <bpel:copy>
+                        <bpel:from>$nsSP_OperationResponseMsg.parameters/ns:parameters/ns:result</bpel:from>
+                        <bpel:to>$thisBeginResponseMsg.body/text()</bpel:to><mapper:mapperLink><mapper:vertice id="1914207781" targetPath="$thisBeginResponseMsg.body/text()" targetedBy="1620464071-arg0"></mapper:vertice><mapper:vertice id="1620464071" sourcePath="$nsSP_OperationResponseMsg.parameters/ns:parameters/ns:result"></mapper:vertice></mapper:mapperLink>
+                    </bpel:copy>
+                </bpdm:linkset>
+                <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="reply" bpdm:messageVariable="thisBeginResponseMsg" bpdm:msgVarScopeId="_Fbg5wG5CEeWD6_cSCbH64A" bpdm:variableIsManaged="true" bpdm:messageType="this:BeginResponse" bpdm:ID="_xc8gQG5GEeWD6_cSCbH64A"></bpdm:linkset>
+            </bpdm:messagingtask>
+        </bpel:sequence>
+    </bpel:scope>
+</bpel:process>

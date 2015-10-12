@@ -1,0 +1,33 @@
+﻿<bpel:process xmlns:bpdm="http://www.intalio/designer/business-process-data-modeling" xmlns:mapper="http://www.intalio.com/designer/mapper" xmlns:Data_SP="http://thisdiagram/Data_SP" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://www.example.org/message" xmlns:this="http://thisdiagram/Send" xmlns:diag="http://thisdiagram" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ode="http://www.apache.org/ode/type/extension" targetNamespace="http://thisdiagram/Send">
+    <bpdm:dependencies version="6000089">
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram/Data_SP" bpdm:prefix="Data_SP" bpdm:comment="contrib=&apos;partner-pool:///_Fbg5wG5CEeWD6_cSCbH64A"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/2001/XMLSchema" bpdm:prefix="xs"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/2001/XMLSchema-instance" bpdm:prefix="xsi"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.example.org/message" bpdm:prefix="tns" bpdm:comment="contrib=&apos;project:///Schemas/message.xsd"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram/Send" bpdm:prefix="this" bpdm:type="this_process"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram" bpdm:prefix="diag" bpdm:comment="contrib=&apos;partner-pool:///_Fbg5wG5CEeWD6_cSCbH64A"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/XML/1998/namespace" bpdm:prefix="xml"></bpdm:namespaceDefinition>
+        <bpdm:namespaceContributor bpdm:url="thisprocess://this-process-types" bpdm:label="process defined this-process-types"></bpdm:namespaceContributor>
+        <bpdm:namespaceContributor bpdm:url="partner-pool:///_Fbg5wG5CEeWD6_cSCbH64A" bpdm:label="Data SP"/>
+        <bpdm:namespaceContributor bpdm:url="project:///Schemas/message.xsd"/>
+    </bpdm:dependencies>
+    <bpel:scope bpdm:label="Send" bpdm:ID="_DXyugG5CEeWD6_cSCbH64A">
+        <bpel:partnerLinks>
+            <bpel:partnerLink name="data_SpAndSendPlkVar" partnerLinkType="diag:Data_SpAndSend" initializePartnerRole="yes" partnerRole="Data_SP_for_Send" bpdm:invokedService="Data_SP:CanonicServiceForSend" bpdm:invokedPort="canonicPort" bpdm:invokedSOAPAddress="${deploy_serverUrl}${deploy_baseSoapServicesUrl}/${deploy_bundleNcName}/${diagram_relativeURL}/Data_SP/Send" bpdm:invokedIsDefault="true" bpdm:clientTasks="_DXyugG5CEeWD6_cSCbH64A:_DXyugm5CEeWD6_cSCbH64A" bpdm:isManaged="true" bpdm:otherPoolId="_Fbg5wG5CEeWD6_cSCbH64A"/>
+        </bpel:partnerLinks>
+        <bpel:variables>
+            <bpel:variable name="data_SPEventStartMessageRequest" messageType="Data_SP:BeginRequest" bpdm:messageIds=" out:_hofJAG5GEeWD6_cSCbH64A">
+                <bpel:from bpdm:toPart="body">
+                    <bpel:literal bpdm:linkedMessageType="Data_SP:BeginRequest" bpdm:linkedPart="body"></bpel:literal>
+                </bpel:from>
+            </bpel:variable>
+            <bpel:variable name="data_SPBeginResponseMsg" messageType="Data_SP:BeginResponse" bpdm:messageIds="inc:_xc8gQG5GEeWD6_cSCbH64A"/>
+        </bpel:variables>
+        <bpel:sequence>
+            <bpdm:messagingtask operation="Begin" partnerLink="data_SpAndSendPlkVar" portType="Data_SP:ForSend" isMyRole="false" enableSharing="false" bpdm:backEdgeId="" bpdm:backEdgeParticipantType="none" bpdm:backEdgeParticipantTarget="none" bpdm:label="Task" bpdm:ID="_DXyugm5CEeWD6_cSCbH64A">
+                <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="invoke-request" bpdm:messageVariable="data_SPEventStartMessageRequest" bpdm:variableIsManaged="true" bpdm:messageType="Data_SP:BeginRequest" bpdm:ID="_hofJAG5GEeWD6_cSCbH64A"></bpdm:linkset>
+                <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="invoke-receive" bpdm:messageVariable="data_SPBeginResponseMsg" bpdm:variableIsManaged="true" bpdm:messageType="Data_SP:BeginResponse" bpdm:ID="_xc8gQG5GEeWD6_cSCbH64A"></bpdm:linkset>
+            </bpdm:messagingtask>
+        </bpel:sequence>
+    </bpel:scope>
+</bpel:process>

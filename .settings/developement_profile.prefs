@@ -1,0 +1,17 @@
+
+activity_renamed=false
+build.required=yes
+deploy_bundleShouldBeDeployed=true
+deploy_gi_serverUrl=http\://localhost\:8080/intalio/gi
+deploy_serverUrl=http\://localhost\:8080/intalio/ode
+deploymenttimeout=120
+diagram_baseUri=http\://mysql_sp.com
+eclipse.preferences.version=1
+full.build.required=no
+implicit_task_deleted=true
+is.timerstart.annotation.persistance.required=no
+opening_process_diagram=false
+reset.node.cache=yes
+serverpingtimeout=10
+type=non.unique
+uuid=6c623afb-7322-4862-a54c-153181d6e3be

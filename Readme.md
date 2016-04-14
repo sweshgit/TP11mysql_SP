@@ -1,28 +1,12 @@
 
 #Parameters Service Guide#
 
-All Services are discovered by **`'Eureka-Server'`** which runs on port **`8761`**. Also we can run **`'Zuul-Server'`**(runs on port **`8765`**) to access different services with common port.
+##Introduction##
+Parameters service is used to provide parameters to all other micro-services. Any other services which need parameters for configuration or any other purposes use this service to access the parameters defined for that particular service.
 
-Architecture diagram can be found [here](https://docs.google.com/drawings/d/1i7pH5Ey8Ir3gIZKU8232ShP-9d5oWLiU_XHv3XVyKB0/edit).
+##Important Points##
 
-#Quick Start of the service#
-
-##PreRequisite##
-
-1. JRE 1.8
-2. Gradle 2.12 (Setup the environment variables for Gradle)
-
-##Running Eureka Server##
-
-Before starting any service, you should have Eureka Server running to access micro-services. Follow the link to setup Eureka Server [link](Eureka-Server).
-
-##Starting Parameter Service##
-1. Clone the micro-services repository where you will get parameter-service from github as **`https://github.com/Everteam-Software/micro-services.git`**.
-2. Go to the parameters service folder and run the gradle command on the **`cmd`** window as **`Gradle bootRun`**.
-   
-    **Note :** You can also run the parameter service using jar file. First create  a jar file by executing **`Gradle build`** command. It will generate the **`jar`** file and then you can execute **`java -jar parameters-1.0.0-SNAPSHOT.jar`**.
-
-3. Parameter service will run on a particular port and it will be displayed on the parameter service console itself.
-4. To access the parameter service, you can go to link provided in Eureka         Server console with port. But you need to the full URL to as         **`http://localhost:portName/parameters/properties-file-name/env`**.
-5. It will fetch all the properties parameters from /config folder.
-6. Properties files can be **`.properties`** or **`.yaml`** formats.
+1. To access the parameter service, you can go to the link provided in Server console with port number. But you need the full URL to access the service as **`http://HostName:PortNumber/parameters/ApplicationPropertiesFileName/env`** or **`http://HostName:PortNumber/parameters/ApplicationPropertiesFileName/default`**.
+2. It will fetch all the parameters defined in the application properties file for the specified micro-service as per the URL.
+3. Properties files can be **`.properties`** or **`.yaml`** formats.
+##
